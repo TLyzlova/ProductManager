@@ -1,16 +1,14 @@
 package ru.netology.domain;
 
-import java.util.Objects;
-
 public class Smartphone extends Product {
     private String brand;
 
     public Smartphone(){
-        super();
+        super(8, "Product", 355);
     }
 
     public Smartphone(int id, String name, int price, String brand) {
-        super(id, name, price);
+        super(id, name, price, "Xiaomi");
         this.brand = brand;
     }
 

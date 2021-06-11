@@ -14,14 +14,16 @@ class ProductManagerTest {
     private ProductRepository repository = new ProductRepository();
     private ProductManager manager = new ProductManager(repository);
 
-    private Book first = new Book(0, "Book1", 456, "Pushkin");
-    private Book second = new Book(1, "Book2", 855, "Lermontov");
-    private Book third = new Book(2, "Book3", 384, "Tolstoy");
-    private Book fourth = new Book(3, "Book4", 289, "Dostoevsky");
-    private Smartphone fifth = new Smartphone(4, "Phone1", 1026, "Samsung");
-    private Smartphone sixth = new Smartphone(5, "Phone2", 5698, "Sony");
-    private Smartphone seventh = new Smartphone(6, "Phone3", 8962, "Nokia");
-    private Smartphone eighth = new Smartphone(7, "Phone4", 4025, "Xiaomi");
+    private Product first = new Book(0, "Book1", 456, "Pushkin");
+    private Product second = new Book(1, "Book2", 855, "Lermontov");
+    private Product third = new Book(2, "Book3", 384, "Tolstoy");
+    private Product fourth = new Book(3, "Book4", 289, "Dostoevsky");
+    private Product fifth = new Smartphone(4, "Phone1", 1026, "Samsung");
+    private Product sixth = new Smartphone(5, "Phone2", 5698, "Huawei");
+    private Product seventh = new Smartphone(6, "Phone3", 8962, "Nokia");
+    private Product eighth = new Smartphone(7, "Phone4", 4025, "Xiaomi");
+    private Product ninth = new Product(8, "Product", 355);
+    private Product tenth = new Smartphone(9, "Phone5", 7825, "Sony");
 
     @BeforeEach
     public void setUp() {
@@ -71,4 +73,22 @@ class ProductManagerTest {
         assertArrayEquals(expected, actual);
     }
 
-}
+
+    @Test
+    public void shouldAddNewProduct() {
+        manager.add(ninth);
+
+        Product[] expected = new Product[]{first, second, third, fourth, fifth, sixth, seventh, eighth, ninth};
+        Product[] actual = manager.findAll();
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSearchOneMorePhone() {
+        manager.add(tenth);
+        Product[] actual = manager.searchBy("Sony");
+        Product[] expected = new Product[]{tenth};
+        assertArrayEquals(expected, actual);
+    }
+
+    }

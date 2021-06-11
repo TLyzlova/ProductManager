@@ -1,16 +1,14 @@
 package ru.netology.domain;
 
-import java.util.Objects;
-
 public class Product {
     private int id;
     private String name;
     private int price;
 
-    public Product() {
+    public Product(int i, String product, int i1) {
     }
 
-    public Product(int id, String name, int price) {
+    public Product(int id, String name, int price, String xiaomi) {
         this.id = id;
         this.name = name;
         this.price = price;

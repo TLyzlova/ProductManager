@@ -6,11 +6,11 @@ public class Book extends Product {
 
 
     public Book() {
-        super();
+        super(8, "Product", 355);
     }
 
     public Book(int id, String name, int price, String author) {
-        super(id, name, price);
+        super(id, name, price, "Xiaomi");
         this.author = author;
     }
 
