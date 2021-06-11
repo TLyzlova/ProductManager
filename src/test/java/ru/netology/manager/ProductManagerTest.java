@@ -90,5 +90,6 @@ class ProductManagerTest {
         Product[] expected = new Product[]{tenth};
         assertArrayEquals(expected, actual);
     }
+    
 
-    }
+}

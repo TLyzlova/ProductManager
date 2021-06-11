@@ -8,15 +8,10 @@ import ru.netology.repository.*;
 public class ProductManager {
     private ProductRepository repository;
 
-    public ProductRepository getRepository() {
-        return repository;
-    }
-
-
-
     public ProductManager(Product[] products, ProductRepository repository) {
+//        this.products = products;
         this.repository = repository;
-
+//        this.text = text;
     }
 
     public ProductManager(ProductRepository repository) {
