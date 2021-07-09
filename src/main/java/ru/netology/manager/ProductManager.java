@@ -8,21 +8,13 @@ import ru.netology.repository.*;
 public class ProductManager {
     private ProductRepository repository;
 
-    public ProductRepository getRepository() {
-        return repository;
-    }
-
-
-
     public ProductManager(Product[] products, ProductRepository repository) {
         this.repository = repository;
-
     }
 
     public ProductManager(ProductRepository repository) {
         this.repository = repository;
     }
-
 
     public void add (Product product) {
         repository.save(product);
@@ -48,7 +40,7 @@ public class ProductManager {
     public boolean matches(Product product, String search) {
         if (product instanceof Book) { // если в параметре product лежит объект класса Book
             Book book = (Book) product; // положем его в переменную типа Book чтобы пользоваться методами класса Book
-            if (((Book) product).getAuthor().contains(search)) { // проверим есть ли поисковое слово в данных об авторе
+            if (book.getAuthor().contains(search))    { // проверим есть ли поисковое слово в данных об авторе
                 return true;
             }
             if (product.getName().contains(search)) {
@@ -59,7 +51,7 @@ public class ProductManager {
 
         if (product instanceof Smartphone) {
             Smartphone smartphone = (Smartphone) product;
-            if (((Smartphone) product).getBrand().contains(search)) {
+            if (smartphone.getBrand().contains(search)) {
                 return true;
             }
             if (product.getName().contains(search)) {
@@ -68,5 +60,4 @@ public class ProductManager {
         }
         return false;
     }
-
 }

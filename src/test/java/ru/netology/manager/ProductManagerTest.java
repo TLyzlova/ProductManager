@@ -37,7 +37,6 @@ class ProductManagerTest {
         repository.save(eighth);
     }
 
-
     @Test
     void searchBookByName() {
         Product[] expected = manager.searchBy ("Book2");
@@ -73,7 +72,6 @@ class ProductManagerTest {
         assertArrayEquals(expected, actual);
     }
 
-
     @Test
     public void shouldAddNewProduct() {
         manager.add(ninth);
@@ -91,4 +89,4 @@ class ProductManagerTest {
         assertArrayEquals(expected, actual);
     }
 
-    }
+}

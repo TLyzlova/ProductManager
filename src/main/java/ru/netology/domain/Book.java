@@ -4,13 +4,12 @@ package ru.netology.domain;
 public class Book extends Product {
     private String author;
 
-
     public Book() {
-        super(8, "Product", 355);
+        super();
     }
 
     public Book(int id, String name, int price, String author) {
-        super(id, name, price, "Xiaomi");
+        super(id, name, price);
         this.author = author;
     }
 
