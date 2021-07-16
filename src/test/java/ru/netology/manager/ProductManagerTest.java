@@ -15,10 +15,10 @@ class ProductManagerTest {
     private ProductManager manager = new ProductManager(repository);
 
     private Product first = new Book(0, "Book1", 456, "Pushkin");
-    private Product second = new Book(1, "Book2", 855, "Lermontov");
+    private Product second = new Book(1, "Book2", 855, "Pushkin");
     private Product third = new Book(2, "Book3", 384, "Tolstoy");
     private Product fourth = new Book(3, "Book4", 289, "Dostoevsky");
-    private Product fifth = new Smartphone(4, "Phone1", 1026, "Samsung");
+    private Product fifth = new Smartphone(4, "Phone1", 1026, "Nokia");
     private Product sixth = new Smartphone(5, "Phone2", 5698, "Huawei");
     private Product seventh = new Smartphone(6, "Phone3", 8962, "Nokia");
     private Product eighth = new Smartphone(7, "Phone4", 4025, "Xiaomi");
@@ -47,7 +47,7 @@ class ProductManagerTest {
     @Test
     void searchBookByAuthor() {
         Product[] expected = manager.searchBy ("Pushkin");
-        Product[] actual = new Product[]{first};
+        Product[] actual = new Product[]{first, second};
         assertArrayEquals(expected, actual);
     }
 
@@ -61,7 +61,7 @@ class ProductManagerTest {
     @Test
     void searchPhoneByBrand() {
         Product[] expected = manager.searchBy ("Nokia");
-        Product[] actual = new Product[]{seventh};
+        Product[] actual = new Product[]{fifth, seventh};
         assertArrayEquals(expected, actual);
     }
 
@@ -88,5 +88,4 @@ class ProductManagerTest {
         Product[] expected = new Product[]{tenth};
         assertArrayEquals(expected, actual);
     }
-
 }
